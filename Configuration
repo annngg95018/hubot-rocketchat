@@ -1,0 +1,92 @@
+
+Hubot-grafana
+-------------------------------------
+export HUBOT_GRAFANA_API_KEY=eyJrIjoiREJPZDFzUWFtUlFXTVdHeWlsRHNiR0hFYXRMT3lqZXYiLCJuIjoiYXBpS2V5VGVzdDIiLCJpZCI6MX0=
+export HUBOT_GRAFANA_HOST=http://localhost:3009
+
+
+curl -H "Authorization: Bearer eyJrIjoiRlV0NmZLRFl0S284VkhhQlc0ZUZoTWMxSTNXUHFPTm4iLCJuIjoiYXBpVGVzdEtleSIsImlkIjoxfQ==" http://localhost:3009/api/dashboards/home
+
+
+Hubot
+-------------------------------------
+export ROCKETCHAT_URL=http://localhost:3000
+export ROCKETCHAT_USER=bot
+export ROCKETCHAT_PASSWORD=123
+export ROCKETCHAT_ROOM=general
+export ROCKETCHAT_USESSL=true
+export BOT_NAME=bot
+
+$PORT=3001 ./bin/hubot -a rocketchat
+
+
+PhantomJS 
+-----------------------------------
+sudo apt update
+sudo apt install build-essential chrpath libssl-dev libxft-dev
+
+sudo apt install libfreetype6 libfreetype6-dev
+sudo apt install libfontconfig1 libfontconfig1-dev
+
+
+    environment:
+      ENABLE_METRICS: 'true'
+      
+#Hubot Rocketchat docker command
+-----------------------------------
+docker run -it -e ROCKETCHAT_URL=http://localhost:3000 \
+	-e ROCKETCHAT_ROOM='general' \
+	-e RESPOND_TO_DM=true \
+	-e ROCKETCHAT_USER=bot \
+	-e ROCKETCHAT_PASSWORD=123 \
+	-e BOT_NAME=bot \
+	-e EXTERNAL_SCRIPTS=hubot-pugme,hubot-help \
+	rocketchat/hubot-rocketchat
+
+#Hubot activate command
+-----------------------------------
+PORT=3001 ./bin/hubot -a rocketchat
+
+# bot
+-----------------------------------
+有兩個bot 
+1.一個是 Hubot 用 yoeman 產生的
+2.令一個是 hubot-rocketchat-boilerplate 這個是支持 hubot-rocketchat-adapter
+
+#port
+-----------------------------------
+kill -9 PID
+
+lsof -i tcp:3000
+
+#Env.
+-----------------------------------
+# virtualenvwrapper setting
+export WORKON_HOME=~/Envs
+export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
+source /home/jjann/.local/bin/virtualenvwrapper.sh
+
+# Hubot-grafana env
+export HUBOT_GRAFANA_API_KEY=eyJrIjoiRlV0NmZLRFl0S284VkhhQlc0ZUZoTWMxSTNXUHFPTm4iLCJuIjoiYXBpVGVzdEtleSIsImlkIjoxfQ==
+export HUBOT_GRAFANA_HOST=http://localhost:3009
+
+# Hubot-RocketChat
+export ROCKETCHAT_URL=http://localhost:3000
+export ROCKETCHAT_USER=bot
+export ROCKETCHAT_PASSWORD=123
+export ROCKETCHAT_ROOM=general
+export ROCKETCHAT_USESSL=false
+export BOT_NAME=bot
+
+#Hubot connect fail to Rocketchat
+export NODE_TLS_REJECT_UNAUTHORIZED=0
+
+#强制密码回退
+export Accounts_TwoFactorAuthentication_Enforce_Password_Fallback
+
+#PhantomJS
+export PHANTOM_JS="phantomjs-1.9.8-linux-x86_64"
+
+
+
+
