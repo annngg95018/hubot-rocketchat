@@ -15,7 +15,7 @@ pip3 install rasa
       window.WebChat.default(
         {
           customData: { language: "en" },
-          socketUrl: "https://bf-botfront.development.agents.botfront.cloud",
+          socketUrl: "http://localhost:5005",
           // add other props here
         },
         null
